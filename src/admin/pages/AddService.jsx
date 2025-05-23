@@ -37,7 +37,7 @@ const AddService = () => {
   };
 
   return (
-    <div className="p-6 bg-[#fdf9f9] min-h-screen font-sans relative">
+    <div className="p-6  min-h-screen font-sans relative">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-semibold text-[#002244]">All Services</h2>
         <div className="flex gap-4">

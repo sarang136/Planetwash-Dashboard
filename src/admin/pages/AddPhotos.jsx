@@ -14,42 +14,47 @@ const AddPhotos = () => {
     const navigate = useNavigate();
 
     return (
-        <div className='w-full min-h-[700px] bg-gray-100 p-4 sm:p-6 overflow-hidden relative font-dm'>
-            <div className={`bg-white h-screen rounded-2xl p-6 sm:p-9 relative flex flex-col-1 transition duration-300 ease-in-out ${showForm ? 'blur-sm' : ''} md:h-[720px] `}>
+        <div className=' sm:p-4 overflow-hidden bg-white rounded-2xl'>
+            <div className={`  p-2 sm:p-6 relative flex flex-col-1 transition duration-300 ease-in-out flex justify-center ${showForm ? 'blur-sm' : ''}  `}>
 
                 {/* Image Grid */}
-                <div className='flex flex-col px-20 gap-y-8 sm:gap-x-10 sm:justify-start xl:flex xl:flex-row'>
+
+                <div className='flex flex-col  sm:gap-x-10 sm:justify-start xl:flex xl:flex-row xl:justify-around'>
                     {images.map((img, index) => (
-                        <div key={index} className='relative w-[140px] h-[140px] sm:w-[180px] sm:h-[180px]'>
+                        <div key={index} className=''>
                             <img
                                 src={img}
                                 alt={`uploaded-${index}`}
-                                className='rounded-lg w-full h-full object-cover'
+                                className='rounded-lg w-full h-full '
                             />
-                            <button
-                                className='h-[38px] w-[40px] p-2 absolute bottom-1 right-1 bg-white rounded-md text-red-500 transition hover:bg-gray-100'
+                            {/* <button
+                                className='h-[38px] w-[40px] p-2 relative bottom-10 left-10 bg-white rounded-md text-red-500 transition hover:bg-gray-100'
                             >
                                 <BiSolidTrash size={20} />
-                            </button>
+                            </button> */}
                         </div>
                     ))}
                 </div>
 
                 {/* Add Product Button */}
-                <div className='absolute bottom-6 sm:bottom-9 ml-20 sm:right-9'>
-                    <button
-                        className='bg-[#052344] text-white text-base sm:text-xl px-6 sm:px-10 py-2 sm:py-3 rounded-xl hover:bg-[#03172b] transition'
-                        onClick={() => setShowForm(true)}
-                    >
-                        Add Photos
-                    </button>
-                </div>
+
+
+
             </div>
+
 
             {/* Modal Form */}
             {showForm && (
                 <AddPhotosFrom closeForm={() => setShowForm(false)} />
             )}
+           <div className='flex justify-end mt-[] p-6'>
+             <button
+                className='bg-[#052344] text-white text-base sm:text-xl px-6 sm:px-10 py-2 sm:py-3 rounded-xl hover:bg-[#03172b] transition'
+                onClick={() => setShowForm(true)}
+            >
+                Add Photos
+            </button>
+           </div>
         </div>
     );
 };

@@ -20,7 +20,8 @@ const Header = ({ toggleSidebar }) => {
     const currentTitle = titles.find(t => location.pathname.startsWith(t.path))?.title || "Admin Panel";
 
     return (
-        <header className="bg-white shadow-md py-4 flex items-center justify-between font-dm">
+      <header className="bg-white shadow-md py-4 px-4 flex items-center justify-between font-dm w-full">
+
             {/* Sidebar Toggle Button (Mobile) */}
             <button onClick={toggleSidebar} className="text-gray-900 text-2xl md:hidden">
                 <FaBars />

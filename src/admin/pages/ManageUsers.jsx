@@ -16,8 +16,8 @@ export const sampleOrders = [
         service: "washing & Ironing",
         address: "golden city center , Chh Sambhajinagar",
         payment: "Cash on  Delivery",
-        deliveryBoy:"Andrew Tate",
-        pickupTime:"8:51 pm",
+        deliveryBoy: "Andrew Tate",
+        pickupTime: "8:51 pm",
         id: '1',
     },
     {
@@ -28,10 +28,194 @@ export const sampleOrders = [
         service: "washing & Ironing",
         address: "golden city center , Chh Sambhajinagar",
         payment: "Cash on  Delivery",
-         deliveryBoy:"MS.Dhoni",
-        pickupTime:"7:16 pm",
+        deliveryBoy: "MS.Dhoni",
+        pickupTime: "7:16 pm",
         id: '2',
     },
+    ,
+    {
+        name: "Siwggy Kumar",
+        contact: "8978765654",
+        email: "john@gmail.com",
+        pickup: "20/05/2025",
+        service: "washing & Ironing",
+        address: "golden city center , Chh Sambhajinagar",
+        payment: "Cash on  Delivery",
+        deliveryBoy: "MS.Dhoni",
+        pickupTime: "7:16 pm",
+        id: '2',
+    },
+    ,
+    {
+        name: "Siwggy Kumar",
+        contact: "8978765654",
+        email: "john@gmail.com",
+        pickup: "20/05/2025",
+        service: "washing & Ironing",
+        address: "golden city center , Chh Sambhajinagar",
+        payment: "Cash on  Delivery",
+        deliveryBoy: "MS.Dhoni",
+        pickupTime: "7:16 pm",
+        id: '2',
+    },
+    ,
+    {
+        name: "Siwggy Kumar",
+        contact: "8978765654",
+        email: "john@gmail.com",
+        pickup: "20/05/2025",
+        service: "washing & Ironing",
+        address: "golden city center , Chh Sambhajinagar",
+        payment: "Cash on  Delivery",
+        deliveryBoy: "MS.Dhoni",
+        pickupTime: "7:16 pm",
+        id: '2',
+    },
+    ,
+    {
+        name: "Siwggy Kumar",
+        contact: "8978765654",
+        email: "john@gmail.com",
+        pickup: "20/05/2025",
+        service: "washing & Ironing",
+        address: "golden city center , Chh Sambhajinagar",
+        payment: "Cash on  Delivery",
+        deliveryBoy: "MS.Dhoni",
+        pickupTime: "7:16 pm",
+        id: '2',
+    },
+    ,
+    {
+        name: "Siwggy Kumar",
+        contact: "8978765654",
+        email: "john@gmail.com",
+        pickup: "20/05/2025",
+        service: "washing & Ironing",
+        address: "golden city center , Chh Sambhajinagar",
+        payment: "Cash on  Delivery",
+        deliveryBoy: "MS.Dhoni",
+        pickupTime: "7:16 pm",
+        id: '2',
+    },
+    ,
+    {
+        name: "Siwggy Kumar",
+        contact: "8978765654",
+        email: "john@gmail.com",
+        pickup: "20/05/2025",
+        service: "washing & Ironing",
+        address: "golden city center , Chh Sambhajinagar",
+        payment: "Cash on  Delivery",
+        deliveryBoy: "MS.Dhoni",
+        pickupTime: "7:16 pm",
+        id: '2',
+    },
+    ,
+    {
+        name: "Siwggy Kumar",
+        contact: "8978765654",
+        email: "john@gmail.com",
+        pickup: "20/05/2025",
+        service: "washing & Ironing",
+        address: "golden city center , Chh Sambhajinagar",
+        payment: "Cash on  Delivery",
+        deliveryBoy: "MS.Dhoni",
+        pickupTime: "7:16 pm",
+        id: '2',
+    },
+    ,
+    {
+        name: "Siwggy Kumar",
+        contact: "8978765654",
+        email: "john@gmail.com",
+        pickup: "20/05/2025",
+        service: "washing & Ironing",
+        address: "golden city center , Chh Sambhajinagar",
+        payment: "Cash on  Delivery",
+        deliveryBoy: "MS.Dhoni",
+        pickupTime: "7:16 pm",
+        id: '2',
+    },
+    ,
+    {
+        name: "Siwggy Kumar",
+        contact: "8978765654",
+        email: "john@gmail.com",
+        pickup: "20/05/2025",
+        service: "washing & Ironing",
+        address: "golden city center , Chh Sambhajinagar",
+        payment: "Cash on  Delivery",
+        deliveryBoy: "MS.Dhoni",
+        pickupTime: "7:16 pm",
+        id: '2',
+    },
+    ,
+    {
+        name: "Siwggy Kumar",
+        contact: "8978765654",
+        email: "john@gmail.com",
+        pickup: "20/05/2025",
+        service: "washing & Ironing",
+        address: "golden city center , Chh Sambhajinagar",
+        payment: "Cash on  Delivery",
+        deliveryBoy: "MS.Dhoni",
+        pickupTime: "7:16 pm",
+        id: '2',
+    },
+    ,
+    {
+        name: "Siwggy Kumar",
+        contact: "8978765654",
+        email: "john@gmail.com",
+        pickup: "20/05/2025",
+        service: "washing & Ironing",
+        address: "golden city center , Chh Sambhajinagar",
+        payment: "Cash on  Delivery",
+        deliveryBoy: "MS.Dhoni",
+        pickupTime: "7:16 pm",
+        id: '2',
+    },
+    ,
+    {
+        name: "Siwggy Kumar",
+        contact: "8978765654",
+        email: "john@gmail.com",
+        pickup: "20/05/2025",
+        service: "washing & Ironing",
+        address: "golden city center , Chh Sambhajinagar",
+        payment: "Cash on  Delivery",
+        deliveryBoy: "MS.Dhoni",
+        pickupTime: "7:16 pm",
+        id: '2',
+    },
+    ,
+    {
+        name: "Siwggy Kumar",
+        contact: "8978765654",
+        email: "john@gmail.com",
+        pickup: "20/05/2025",
+        service: "washing & Ironing",
+        address: "golden city center , Chh Sambhajinagar",
+        payment: "Cash on  Delivery",
+        deliveryBoy: "MS.Dhoni",
+        pickupTime: "7:16 pm",
+        id: '2',
+    },
+    ,
+    {
+        name: "Siwggy Kumar",
+        contact: "8978765654",
+        email: "john@gmail.com",
+        pickup: "20/05/2025",
+        service: "washing & Ironing",
+        address: "golden city center , Chh Sambhajinagar",
+        payment: "Cash on  Delivery",
+        deliveryBoy: "MS.Dhoni",
+        pickupTime: "7:16 pm",
+        id: '2',
+    },
+
+
 ];
 
 const Orders = () => {
@@ -44,7 +228,7 @@ const Orders = () => {
 
 
     return (
-        <div className="p-6 bg-[#fdf9f9] min-h-screen">
+        <div className="p-[1rem]">
             <div className="flex justify-between items-center mb-4">
                 <div className="flex gap-[70px]">
                     {tabs.map((tab) => (
@@ -81,18 +265,19 @@ const Orders = () => {
 
             {/* Table */}
             {activeTab === "All Orders" && (
-                <div className="overflow-x-auto bg-white rounded-xl shadow p-4">
-                    <table className="min-w-full text-sm text-left">
-                        <thead className="text-black font-semibold 100">
+                <div className="overflow-x-auto bg-white rounded-xl shadow px-4 max-h-[75vh] ">
+                    <table className="min-w-full text-sm text-left  ">
+                        <thead className="text-black font-semibold 100 ">
                             <tr >
-                                <th className="px-[15px] py-[10px] whitespace-nowrap">Customer Name</th>
-                                <th className="px-[15px] py-[10px] whitespace-nowrap">Contact No</th>
-                                <th className="px-[15px] py-[10px]">Email</th>
-                                <th className="px-[15px] py-[10px] whitespace-nowrap">Pickup Date</th>
-                                <th className="px-[15px] py-[10px]">Service Type</th>
-                                <th className="px-[15px] py-[10px]">Address</th>
-                                <th className="px-[15px] py-[10px] whitespace-nowrap">Payment Method</th>
-                                <th className="px-[15px] py-[10px]"></th>
+                                <th className="px-[15px] py-[20px] whitespace-nowrap ">Customer Name</th>
+                                <th className="px-[15px] py-[10px] whitespace-nowrap ">Contact No</th>
+                                <th className="px-[15px] py-[10px] ">Email</th>
+                                <th className="px-[15px] py-[10px] whitespace-nowrap ">Pickup Date</th>
+                                <th className="px-[15px] py-[10px] ">Service Type</th>
+                                <th className="px-[15px] py-[10px] ">Address</th>
+                                <th className="px-[15px] py-[10px] whitespace-nowrap ">Payment Method</th>
+                                <th className="px-[15px] py-[10px] "></th>
+
                             </tr >
                         </thead>
                         <tbody className="text-gray-400 border-t">

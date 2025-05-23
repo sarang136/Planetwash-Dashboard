@@ -5,11 +5,11 @@ const PickupSchedule = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="overflow-x-auto p-4 bg-white rounded-lg shadow">
+    <div className="overflow-y-scroll px-4 bg-white rounded-lg shadow max-h-[75vh]">
       <table className="min-w-full text-sm text-left text-gray-500">
-        <thead className="text-xs text-black uppercase bg-white border-b whitespace-nowrap font-semibold">
+        <thead className="text-xm text-black bg-white border-b whitespace-nowrap font-semibold">
           <tr>
-            <th className="px-6 py-3">Customer Name</th>
+            <th className="px-[15px] py-[20px]">Customer Name</th>
             <th className="px-6 py-3 hidden sm:table-cell">Contact No</th>
             <th className="px-6 py-3 hidden md:table-cell">Email</th>
             <th className="px-6 py-3 hidden sm:table-cell">Pickup Date & Time</th>

@@ -14,23 +14,23 @@ const DeliveryBoys = () => {
     const [selectedBoy, setSelectedBoy] = useState(null);
 
     return (
-        <div className="p-6 flex flex-col gap-6 font-dm max-w-full">
-            <div className="flex flex-wrap gap-6 justify-evenly">
+        <div className=" flex flex-col gap-6 font-dm max-w-full">
+          <div className="grid grid-cols-1  lg:grid-cols-3 gap-4  p-4">
                 {deliveryBoys.map((boy) => (
                     <div
                         key={boy.id}
-                        className="mb-8 py-6 px-6 rounded-lg bg-white cursor-pointer flex flex-col sm:flex-row items-center sm:items-start max-w-md sm:max-w-full w-full sm:w-auto xl:rounded-xl"
+                        className="p-6 rounded-lg bg-white cursor-pointer  xl:rounded-xl  flex justify-center gap-4 align-center"
                         onClick={() => setSelectedBoy(boy)}
                     >
                         <div className="flex items-center justify-center border-2 w-24 h-24 sm:w-28 sm:h-28 shadow-md rounded-full overflow-hidden flex-shrink-0 xl:p-4">
                             <img src={Img} alt="Delivery Boy" className="h-full w-full object-cover" />
                         </div>
-                        <div className="flex-1 px-0 sm:px-8 text-center sm:text-left mt-4 sm:mt-0 space-y-1">
+                        <div className="flex-1  px-0 sm:px-0 text-center sm:text-left mt-0 sm:mt-0 space-y-1 ">
                             <p className="font-medium text-gray-900 text-lg sm:text-xl">{boy.fullName}</p>
                             <p className="text-gray-600 text-sm sm:text-base">{boy.number}</p>
                             <p className="text-gray-600 text-sm sm:text-base">{boy.email}</p>
                         </div>
-                        <div className="flex gap-4 mt-4 sm:ml-4 xl:grid">
+                        <div className="flex flex-col gap-2">
                             <button className="text-red-500 transition-colors" aria-label={`Delete ${boy.fullName}`}>
                                 <HiTrash size={26} />
                             </button>

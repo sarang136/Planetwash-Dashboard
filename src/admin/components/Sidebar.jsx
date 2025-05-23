@@ -8,7 +8,7 @@ import { FiPlusCircle } from 'react-icons/fi';
 const menuItems = [
   { name: "Dashboard", path: "/home/dashboard", icon: <GoHomeFill /> },
   { name: "Orders", path: "/home/manageUsers", icon: <FaCreditCard /> }, // Manage Users --> Orders
-    { name: "Add Service", path: "/home/addservice", icon: <FiPlusCircle /> },   // Admin Panel to Add services
+  { name: "Add Service", path: "/home/addservice", icon: <FiPlusCircle /> },   // Admin Panel to Add services
   { name: "Revenue", path: "/home/revenue", icon: <FaCreditCard /> },
   { name: "Add Photos", path: "/home/addphotos", icon: <MdPhotoSizeSelectActual /> },
   { name: "Delivery Boys", path: "/home/delivery-boys", icon: <MdDeliveryDining /> },
@@ -29,8 +29,8 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
   return (
     <>
-      <div className={`fixed md:relative inset-y-0 left-0 bg-white text-black h-screen p-4 transform transition-transform duration-300 z-40 font-dm
-            ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:w-80 w-72`}>
+      <div className={`md:relative inset-y-0 left-0 bg-white text-black  p-4 transform transition-transform duration-300 z-40 font-dm
+            ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:w-80 w-72 fixed`}>
 
 
         {/* Close Button (Mobile) */}
