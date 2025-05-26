@@ -16,7 +16,7 @@ const AdminLayout = () => {
             {/* Main Content */}
             <div className={`flex flex-col flex-1 transition-all  duration-300 ${isSidebarOpen ? "md:ml-64" : "md:ml-0"}`}>
                 <Header toggleSidebar={toggleSidebar} />
-                <main className="p-4 bg-gray-100 flex-1 overflow-hidden">
+                <main className="md:p-4 bg-gray-100 flex-1 overflow-hidden">
                     <Outlet />
                 </main>
             </div>

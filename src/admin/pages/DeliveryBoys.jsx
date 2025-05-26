@@ -14,8 +14,8 @@ const DeliveryBoys = () => {
     const [selectedBoy, setSelectedBoy] = useState(null);
 
     return (
-        <div className=" flex flex-col gap-6 font-dm max-w-full">
-          <div className="grid grid-cols-1  lg:grid-cols-3 gap-4  p-4">
+        <div className=" flex flex-col gap-6 font-dm w- md:max-w-full">
+          <div className="grid grid-cols-1 w-[100vw] md:w-[unset]  md:grid-cols-3 gap-4  p-4">
                 {deliveryBoys.map((boy) => (
                     <div
                         key={boy.id}
@@ -44,7 +44,7 @@ const DeliveryBoys = () => {
 
             {/* Only show the table when a delivery boy is selected */}
             {selectedBoy && (
-                <div className="w-full overflow-x-auto">
+                <div className="w-[100vw] md:w-full overflow-x-auto ">
                     <DeliveryOrders deliveryBoy={selectedBoy} />
                 </div>
             )}

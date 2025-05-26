@@ -25,8 +25,8 @@ const UserData = () => {
   }
 
   return (
-    <div className="p-6 bg-[#fdf9f9] min-h-screen">
-      <div className="bg-white px-10 py-8 rounded-xl shadow-md">
+    <div className="p-6 bg-[#fdf9f9] min-h-screen w-[100vw] md:w-[auto]">
+      <div className="bg-white md:px-10 md:py-8 rounded-xl shadow-md p-4 ">
         {/* User info inputs */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           <div>
@@ -153,7 +153,7 @@ const UserData = () => {
 
           {/* Washing Items */}
           {showItems === "Washing" && (
-            <div className="flex gap-4 p-6 h-[200px]">
+            <div className="flex gap-4 p-6 h-[200px] overflow-scroll">
               <div className="bg-blue-100 rounded-lg p-8 flex flex-row gap-2 justify-center items-center w-[200px]">
                 <GiTShirt size={50} className="text-[#002244]" />
                 <p className="font-semibold whitespace-nowrap">T - Shirts</p>
@@ -194,6 +194,7 @@ const UserData = () => {
           )}
         </div>
       </div>
+     
     </div>
   );
 };

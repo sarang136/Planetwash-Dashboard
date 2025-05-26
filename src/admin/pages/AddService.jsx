@@ -37,18 +37,18 @@ const AddService = () => {
   };
 
   return (
-    <div className="p-6  min-h-screen font-sans relative">
+    <div className="p-6   font-sans relative">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-xl font-semibold text-[#002244]">All Services</h2>
+        <h2 className="md:text-xl text-[12px] font-semibold text-[#002244]">All Services</h2>
         <div className="flex gap-4">
           <button
-            className="bg-[#002244] text-white px-6 py-2 rounded-lg"
+            className="bg-[#002244] text-white md:px-6 md:py-2 rounded-lg p-2 text-[12px] md:text-sm "
             onClick={() => setShowServiceForm(true)}
           >
             Add Service
           </button>
           <button
-            className="bg-[#002244] text-white px-6 py-2 rounded-lg"
+            className="bg-[#002244] text-white md:px-6 md:py-2 rounded-lg text-[12px] p-2 md:text-sm"
             onClick={() => setShowProductForm(true)}
           >
             Add Product
@@ -56,11 +56,11 @@ const AddService = () => {
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-6">
+      <div className="grid grid-cols-2 md:flex md:flex-wrap gap-6">
         {services.map((service, index) => (
           <div
             key={index}
-            className="w-[250px] overflow-hidden relative"
+            className="rounded-lg md:w-[250px] overflow-hidden relative"
           >
             <img
               onClick={() => handleImageClick(service)}

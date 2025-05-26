@@ -108,31 +108,31 @@ const Completed = () => {
         <table className="min-w-full text-left text-sm text-gray-400   overflow-hidden ">
           <thead className="text-sm text-black p-4 whitespace-nowrap ">
             <tr>
-              <th className="px-[20px] py-[20px] font-bold">Costumer Name</th>
-              <th className="px-[20px] py-[20px] font-bold">Contact No</th>
-              <th className="px-[20px] py-[20px] font-bold">Email</th>
-              <th className="px-[20px] py-[20px] font-bold">Service Type</th>
-              <th className="px-[20px] py-[20px] font-bold">Delivered By</th>
-              <th className="px-[20px] py-[20px] font-bold">Address</th>
-              <th className="px-[20px] py-[20px] font-bold">Payment Method</th>
-              <th className="px-[20px] py-[20px] font-bold">Delivered On</th>
+              <th className="px-[20px] py-[20px] font-bold text-[12px] md:text-sm whitespace-nowrap">Costumer Name</th>
+              <th className="px-[20px] py-[20px] font-bold text-[12px] md:text-sm whitespace-nowrap">Contact No</th>
+              <th className="px-[20px] py-[20px] font-bold text-[12px] md:text-sm whitespace-nowrap">Email</th>
+              <th className="px-[20px] py-[20px] font-bold text-[12px] md:text-sm whitespace-nowrap">Service Type</th>
+              <th className="px-[20px] py-[20px] font-bold text-[12px] md:text-sm whitespace-nowrap">Delivered By</th>
+              <th className="px-[20px] py-[20px] font-bold text-[12px] md:text-sm whitespace-nowrap">Address</th>
+              <th className="px-[20px] py-[20px] font-bold text-[12px] md:text-sm whitespace-nowrap">Payment Method</th>
+              <th className="px-[20px] py-[20px] font-bold text-[12px] md:text-sm whitespace-nowrap">Delivered On</th>
             </tr>
           </thead>
           <tbody className='border-t'>
             {completedOrders.map((order, index) => (
               <tr key={index} className=" ">
-                <td className="px-[15px] py-[10px] cursor-pointer">{order.customerName}</td>
-                <td className="px-[15px] py-[10px]">{order.contactNo}</td>
-                <td className="px-[15px] py-[10px]">{order.email}</td>
-                <td className="px-[15px] py-[10px] capitalize">{order.serviceType}</td>
-                <td className="px-[15px] py-[10px]">
+                <td className="px-[15px] py-[10px] cursor-pointer text-[12px] md:text-sm">{order.customerName}</td>
+                <td className="px-[15px] py-[10px] text-[12px] md:text-sm">{order.contactNo}</td>
+                <td className="px-[15px] py-[10px] text-[12px] md:text-sm">{order.email}</td>
+                <td className="px-[15px] py-[10px] text-[12px] md:text-sm capitalize">{order.serviceType}</td>
+                <td className="px-[15px] py-[10px] text-[12px] md:text-sm">
                   {order.deliveredBy}
                   <br />
-                  <span className="text-xs text-gray-500">{order.deliveryBoyContact}</span>
+                  <span className="text-xs text-gray-500 text-[12px] md:text-sm ">{order.deliveryBoyContact}</span>
                 </td>
-                <td className="px-[20px] py-4 ">{order.address}</td>
-                <td className="px-[20px] py-4">{order.paymentMethod}</td>
-                <td className="px-[20px] py-4">{order.deliveredOn}</td>
+                <td className="px-[20px] py-4 text-[12px] md:text-sm ">{order.address}</td>
+                <td className="px-[20px] py-4 text-[12px] md:text-sm">{order.paymentMethod}</td>
+                <td className="px-[20px] py-4 text-[12px] md:text-sm">{order.deliveredOn}</td>
               </tr>
             ))}
           </tbody>

@@ -20,16 +20,15 @@ const Header = ({ toggleSidebar }) => {
     const currentTitle = titles.find(t => location.pathname.startsWith(t.path))?.title || "Admin Panel";
 
     return (
-      <header className="bg-white shadow-md py-4 px-4 flex items-center justify-between font-dm w-full">
-
+        <header className="bg-white shadow-md p-4 flex items-center justify-between font-dm w-[100vw] md:w-[unset] md:py-4 ">
             {/* Sidebar Toggle Button (Mobile) */}
             <button onClick={toggleSidebar} className="text-gray-900 text-2xl md:hidden">
                 <FaBars />
             </button>
 
             {/* Dynamic Page Title */}
-            <h1 className="text-2xl text-black font-bold">{currentTitle}</h1>
-            <FaUserLarge className="mr-14 text-2xl text-black" />
+            <h1 className=" text-black font-bold md:text-2xl">{currentTitle}</h1>
+            <FaUserLarge className="md:mr-14 text-2xl text-black" />
 
         </header>
     );

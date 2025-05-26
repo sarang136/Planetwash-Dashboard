@@ -14,18 +14,19 @@ const AddPhotos = () => {
     const navigate = useNavigate();
 
     return (
-        <div className=' sm:p-4 overflow-hidden bg-white rounded-2xl'>
-            <div className={`  p-2 sm:p-6 relative flex flex-col-1 transition duration-300 ease-in-out flex justify-center ${showForm ? 'blur-sm' : ''}  `}>
+       <div className='p-2'>
+         <div className=' md:p-4 overflow-hidden bg-white rounded-2xl '>
+            <div className={`  md:p-2 sm:p-6 relative flex flex-col-1 transition duration-300 ease-in-out flex justify-center ${showForm ? 'blur-sm' : ''}  `}>
 
                 {/* Image Grid */}
 
-                <div className='flex flex-col  sm:gap-x-10 sm:justify-start xl:flex xl:flex-row xl:justify-around'>
+                <div className='flex flex-wrap p-2 justify-between gap-4 md:gap-0 md:p-0 md:gap-x-10 sm:justify-start xl:flex xl:flex-row xl:justify-around'>
                     {images.map((img, index) => (
                         <div key={index} className=''>
                             <img
                                 src={img}
                                 alt={`uploaded-${index}`}
-                                className='rounded-lg w-full h-full '
+                                className='rounded-lg md:w-full md:h-full h-[unset] w-[unset]'
                             />
                             {/* <button
                                 className='h-[38px] w-[40px] p-2 relative bottom-10 left-10 bg-white rounded-md text-red-500 transition hover:bg-gray-100'
@@ -56,6 +57,7 @@ const AddPhotos = () => {
             </button>
            </div>
         </div>
+       </div>
     );
 };
 

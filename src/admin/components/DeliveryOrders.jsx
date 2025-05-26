@@ -7,7 +7,7 @@ const DeliveryOrders = ({ deliveryBoy }) => {
         <div className='p-4 '>
             <div className="bg-white rounded-xl border-2 border-gray-300 font-dm max-w-full h-[50vh] overflow-y-scroll">
             {/* Tabs */}
-           <div className="sticky top-0 z-50 w-full flex gap-[50px] border-b border-gray-300 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 p-4 bg-white">
+           <div className="sticky top-0 z-50 w-full flex gap-[50px] border-b border-gray-300 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 p-4 bg-white ">
 
                 {['assign', 'ongoing', 'past'].map(tab => (
                     <div
@@ -16,7 +16,7 @@ const DeliveryOrders = ({ deliveryBoy }) => {
                             }`}
                         onClick={() => setActiveTab(tab)}
                     >
-                        <h2 className="text-xl font-medium text-[rgba(5,35,68,1)] capitalize">
+                        <h2 className="md:text-xl font-medium text-[rgba(5,35,68,1)] capitalize ">
                             {tab === 'assign' ? 'Assign Orders' : tab === 'ongoing' ? 'Ongoing Orders' : 'Past Orders'}
                         </h2>
                     </div>
@@ -46,7 +46,7 @@ const DeliveryOrders = ({ deliveryBoy }) => {
                         <tr>
                             <td className="px-2 py-2 text-left align-top text-gray-500 text-sm sm:text-base">John Doe</td>
                             <td className="px-2 py-2 text-left  align-top text-gray-500 text-sm sm:text-md">9876338893</td>
-                            <td className="px-2 py-2  text-left  align-top text-gray-500 text-sm sm:text-md">john@gmail.com</td>
+                            <td className="px-2 py-2  text-left  align-top text-gray-500 text-sm sm:text-md">john@gmail<br/>.com</td>
                             <td className="px-2 py-2  text-left  align-top text-gray-500 text-sm sm:text-md">20</td>
                             <td className="px-2 py-2  text-left  align-top text-gray-500 text-sm sm:text-md">Pick Up</td>
                             <td className="px-2 py-2 text-left  align-top text-gray-500 text-sm sm:text-md">Golden City Center,<br/> Chh Sambhajinagar</td>
@@ -64,111 +64,7 @@ const DeliveryOrders = ({ deliveryBoy }) => {
                                 ) : null}
                             </td>
                         </tr>
-                        <tr>
-                            <td className="px-2 py-2 text-left align-top text-gray-500 text-sm sm:text-base">John Doe</td>
-                            <td className="px-2 py-2 text-left  align-top text-gray-500 text-sm sm:text-md">9876338893</td>
-                            <td className="px-2 py-2  text-left  align-top text-gray-500 text-sm sm:text-md">john@gmail.com</td>
-                            <td className="px-2 py-2  text-left  align-top text-gray-500 text-sm sm:text-md">20</td>
-                            <td className="px-2 py-2  text-left  align-top text-gray-500 text-sm sm:text-md">Pick Up</td>
-                            <td className="px-2 py-2 text-left  align-top text-gray-500 text-sm sm:text-md">Golden City Center,<br/> Chh Sambhajinagar</td>
-                            {activeTab === 'past' && (
-                                <td className="px-2 py-2 sm:px-6 sm:py-4 text-center align-top text-sm sm:text-md">20/05/2025</td>
-                            )}
 
-                            <td className="px-2 py-2 sm:px-6 sm:py-4 text-center align-top">
-                                {activeTab === 'assign' ? (
-                                    <button className="py-2 bg-blue-900 text-white rounded-xl text-xs sm:text-sm sm:px-4 whitespace-nowrap">
-                                        Assign to Other
-                                    </button>
-                                ) : activeTab === 'ongoing' ? (
-                                    <span className="px-3 py-2 text-green-600 font-semibold text-xs sm:text-sm">Live</span>
-                                ) : null}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-2 py-2 text-left align-top text-gray-500 text-sm sm:text-base">John Doe</td>
-                            <td className="px-2 py-2 text-left  align-top text-gray-500 text-sm sm:text-md">9876338893</td>
-                            <td className="px-2 py-2  text-left  align-top text-gray-500 text-sm sm:text-md">john@gmail.com</td>
-                            <td className="px-2 py-2  text-left  align-top text-gray-500 text-sm sm:text-md">20</td>
-                            <td className="px-2 py-2  text-left  align-top text-gray-500 text-sm sm:text-md">Pick Up</td>
-                            <td className="px-2 py-2 text-left  align-top text-gray-500 text-sm sm:text-md">Golden City Center,<br/> Chh Sambhajinagar</td>
-                            {activeTab === 'past' && (
-                                <td className="px-2 py-2 sm:px-6 sm:py-4 text-center align-top text-sm sm:text-md">20/05/2025</td>
-                            )}
-
-                            <td className="px-2 py-2 sm:px-6 sm:py-4 text-center align-top">
-                                {activeTab === 'assign' ? (
-                                    <button className="py-2 bg-blue-900 text-white rounded-xl text-xs sm:text-sm sm:px-4 whitespace-nowrap">
-                                        Assign to Other
-                                    </button>
-                                ) : activeTab === 'ongoing' ? (
-                                    <span className="px-3 py-2 text-green-600 font-semibold text-xs sm:text-sm">Live</span>
-                                ) : null}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-2 py-2 text-left align-top text-gray-500 text-sm sm:text-base">John Doe</td>
-                            <td className="px-2 py-2 text-left  align-top text-gray-500 text-sm sm:text-md">9876338893</td>
-                            <td className="px-2 py-2  text-left  align-top text-gray-500 text-sm sm:text-md">john@gmail.com</td>
-                            <td className="px-2 py-2  text-left  align-top text-gray-500 text-sm sm:text-md">20</td>
-                            <td className="px-2 py-2  text-left  align-top text-gray-500 text-sm sm:text-md">Pick Up</td>
-                            <td className="px-2 py-2 text-left  align-top text-gray-500 text-sm sm:text-md">Golden City Center,<br/> Chh Sambhajinagar</td>
-                            {activeTab === 'past' && (
-                                <td className="px-2 py-2 sm:px-6 sm:py-4 text-center align-top text-sm sm:text-md">20/05/2025</td>
-                            )}
-
-                            <td className="px-2 py-2 sm:px-6 sm:py-4 text-center align-top">
-                                {activeTab === 'assign' ? (
-                                    <button className="py-2 bg-blue-900 text-white rounded-xl text-xs sm:text-sm sm:px-4 whitespace-nowrap">
-                                        Assign to Other
-                                    </button>
-                                ) : activeTab === 'ongoing' ? (
-                                    <span className="px-3 py-2 text-green-600 font-semibold text-xs sm:text-sm">Live</span>
-                                ) : null}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="px-2 py-2 text-left align-top text-gray-500 text-sm sm:text-base">John Doe</td>
-                            <td className="px-2 py-2 text-left  align-top text-gray-500 text-sm sm:text-md">9876338893</td>
-                            <td className="px-2 py-2  text-left  align-top text-gray-500 text-sm sm:text-md">john@gmail.com</td>
-                            <td className="px-2 py-2  text-left  align-top text-gray-500 text-sm sm:text-md">20</td>
-                            <td className="px-2 py-2  text-left  align-top text-gray-500 text-sm sm:text-md">Pick Up</td>
-                            <td className="px-2 py-2 text-left  align-top text-gray-500 text-sm sm:text-md">Golden City Center,<br/> Chh Sambhajinagar</td>
-                            {activeTab === 'past' && (
-                                <td className="px-2 py-2 sm:px-6 sm:py-4 text-center align-top text-sm sm:text-md">20/05/2025</td>
-                            )}
-
-                            <td className="px-2 py-2 sm:px-6 sm:py-4 text-center align-top">
-                                {activeTab === 'assign' ? (
-                                    <button className="py-2 bg-blue-900 text-white rounded-xl text-xs sm:text-sm sm:px-4 whitespace-nowrap">
-                                        Assign to Other
-                                    </button>
-                                ) : activeTab === 'ongoing' ? (
-                                    <span className="px-3 py-2 text-green-600 font-semibold text-xs sm:text-sm">Live</span>
-                                ) : null}
-                            </td>
-                        </tr>
-                            <tr>
-                                <td className="px-2 py-2 text-left align-top text-gray-500 text-sm sm:text-base">John Doe</td>
-                                <td className="px-2 py-2 text-left  align-top text-gray-500 text-sm sm:text-md">9876338893</td>
-                                <td className="px-2 py-2  text-left  align-top text-gray-500 text-sm sm:text-md">john@gmail.com</td>
-                                <td className="px-2 py-2  text-left  align-top text-gray-500 text-sm sm:text-md">20</td>
-                                <td className="px-2 py-2  text-left  align-top text-gray-500 text-sm sm:text-md">Pick Up</td>
-                                <td className="px-2 py-2 text-left  align-top text-gray-500 text-sm sm:text-md">Golden City Center,<br/> Chh Sambhajinagar</td>
-                                {activeTab === 'past' && (
-                                    <td className="px-2 py-2 sm:px-6 sm:py-4 text-center align-top text-sm sm:text-md">20/05/2025</td>
-                                )}
-
-                                <td className="px-2 py-2 sm:px-6 sm:py-4 text-center align-top">
-                                    {activeTab === 'assign' ? (
-                                        <button className="py-2 bg-blue-900 text-white rounded-xl text-xs sm:text-sm sm:px-4 whitespace-nowrap">
-                                            Assign to Other
-                                        </button>
-                                    ) : activeTab === 'ongoing' ? (
-                                        <span className="px-3 py-2 text-green-600 font-semibold text-xs sm:text-sm">Live</span>
-                                    ) : null}
-                                </td>
-                            </tr>
                     </tbody>
                 </table>
             </div>

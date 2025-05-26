@@ -228,16 +228,16 @@ const Orders = () => {
 
 
     return (
-        <div className="p-[1rem]">
-            <div className="flex justify-between items-center mb-4">
-                <div className="flex gap-[70px]">
+        <div className="p-4 md:p-[1rem] w-[100vw] md:w-[unset]">
+            <div className="flex justify-between items-center p-4 mb-4 ">
+                <div className="flex gap-4 md:gap-[70px]">
                     {tabs.map((tab) => (
                         <button
                             key={tab}
                             onClick={() => setActiveTab(tab)}
-                            className={`text-base font-semibold ${activeTab === tab
+                            className={`text-base font-semibold text-[12px] md:text-sm ${activeTab === tab
                                 ? "text-black border-b-2 border-black"
-                                : "text-gray-400"
+                                : "text-gray-400 "
                                 }`}
                         >
                             {tab}
@@ -265,18 +265,19 @@ const Orders = () => {
 
             {/* Table */}
             {activeTab === "All Orders" && (
-                <div className="overflow-x-auto bg-white rounded-xl shadow px-4 max-h-[75vh] ">
+               <div className="  w-[auto] p- md:w-[unset]  md:p-0 ">
+                 <div className="overflow-x-scroll bg-white rounded-xl shadow max-h-[75vh] px-4 ">
                     <table className="min-w-full text-sm text-left  ">
                         <thead className="text-black font-semibold 100 ">
                             <tr >
-                                <th className="px-[15px] py-[20px] whitespace-nowrap ">Customer Name</th>
-                                <th className="px-[15px] py-[10px] whitespace-nowrap ">Contact No</th>
-                                <th className="px-[15px] py-[10px] ">Email</th>
-                                <th className="px-[15px] py-[10px] whitespace-nowrap ">Pickup Date</th>
-                                <th className="px-[15px] py-[10px] ">Service Type</th>
-                                <th className="px-[15px] py-[10px] ">Address</th>
-                                <th className="px-[15px] py-[10px] whitespace-nowrap ">Payment Method</th>
-                                <th className="px-[15px] py-[10px] "></th>
+                                <th className="px-[15px] py-[20px] text-[12px] md:text-sm whitespace-nowrap ">Customer Name</th>
+                                <th className="px-[15px] py-[10px] text-[12px] md:text-sm whitespace-nowrap ">Contact No</th>
+                                <th className="px-[15px] py-[10px] text-[12px] md:text-sm ">Email</th>
+                                <th className="px-[15px] py-[10px]  text-[12px] md:text-sm whitespace-nowrap ">Pickup Date</th>
+                                <th className="px-[15px] py-[10px] text-[12px] md:text-sm ">Service Type</th>
+                                <th className="px-[15px] py-[10px] text-[12px] md:text-sm ">Address</th>
+                                <th className="px-[15px] py-[10px] text-[12px] md:text-sm whitespace-nowrap ">Payment Method</th>
+                                <th className="px-[15px] py-[10px] text-[12px] md:text-sm "></th>
 
                             </tr >
                         </thead>
@@ -284,19 +285,19 @@ const Orders = () => {
                             {sampleOrders.map((order, index) => (
                                 <tr key={index} >
                                     <td
-                                        className="px-[15px] py-[10px] cursor-pointer"
+                                        className="px-[15px] py-[10px] cursor-pointer text-[12px] md:text-sm"
                                         onClick={() => navigate(`/home/userData/${order.id}`)}
                                     >
                                         {order.name}
                                     </td>
-                                    <td className="px-[15px] py-[10px] cursor-pointer">{order.contact}</td>
-                                    <td className="px-[15px] py-[10px] cursor-pointer">{order.email}</td>
-                                    <td className="px-[15px] py-[10px] cursor-pointer">{order.pickup}</td>
-                                    <td className="px-[15px] py-[10px] whitespace-nowrap cursor-pointer">{order.service}</td>
-                                    <td className="px-[15px] py-[10px] cursor-pointer">{order.address}</td>
-                                    <td className="px-[15px] py-[10px] whitespace-nowrap cursor-pointer">{order.payment}</td>
-                                    <td className="px-[15px] py-[10px] cursor-pointer">
-                                        <button className="bg-[#041434] text-white text-sm px-4 py-2 rounded-lg whitespace-nowrap">
+                                    <td className="px-[15px] py-[10px] text-[12px] md:text-sm cursor-pointer">{order.contact}</td>
+                                    <td className="px-[15px] py-[10px] text-[12px] md:text-sm cursor-pointer">{order.email}</td>
+                                    <td className="px-[15px] py-[10px] text-[12px] md:text-sm cursor-pointer">{order.pickup}</td>
+                                    <td className="px-[15px] py-[10px] text-[12px] md:text-sm whitespace-nowrap cursor-pointer">{order.service}</td>
+                                    <td className="px-[15px] py-[10px] text-[12px] md:text-sm cursor-pointer">{order.address}</td>
+                                    <td className="px-[15px] py-[10px] text-[12px] md:text-sm whitespace-nowrap cursor-pointer">{order.payment}</td>
+                                    <td className="px-[15px] py-[10px] text-[12px] md:text-sm cursor-pointer">
+                                        <button className="bg-[#041434] text-[12px] md:text-sm text-white text-sm px-4 py-2 rounded-lg whitespace-nowrap">
                                             Schedule Pickup
                                         </button>
 
@@ -305,6 +306,7 @@ const Orders = () => {
                             ))}
                         </tbody>
                     </table>
+                </div>
                 </div>
             )}
 

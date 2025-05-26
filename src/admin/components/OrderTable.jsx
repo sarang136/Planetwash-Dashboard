@@ -6,33 +6,33 @@ const OrderTable = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <div className="p-4 ">
+    <div className="p-4 w-[100vw] md:w-[unset] ">
       <h3 className="text-lg font-semibold text-[#041434] mb-2">Today's Orders</h3>
 
-      <div className="p-[0.7rem] bg-white rounded-xl shadow-md">
-        <div className="bg-white rounded-xl overflow-hidden">
-          <table className="min-w-full text-left">
+      <div className="p-[0.7rem] bg-white rounded-xl shadow-md max-h-[40vh] overflow-y-scroll">
+        <div className="bg-white rounded-xl overflow-hidden overflow-x-scroll ">
+          <table className="min-w-full text-left text-[10px]">
             <thead className="text-[#041434] text-sm font-semibold">
               <tr>
-                <th className="py-3 px-4">Customer Name</th>
-                <th className="py-3 px-4">Contact No</th>
-                <th className="py-3 px-4">Email</th>
-                <th className="py-3 px-4">Service Type</th>
-                <th className="py-3 px-4">Address</th>
+                <th className="py-3 px-4 text-[12px] md:text-sm">Customer Name</th>
+                <th className="py-3 px-4 text-[12px] md:text-sm">Contact No</th>
+                <th className="py-3 px-4 text-[12px] md:text-sm">Email</th>
+                <th className="py-3 px-4 text-[12px] md:text-sm">Service Type</th>
+                <th className="py-3 px-4 text-[12px] md:text-sm">Address</th>
               </tr>
             </thead>
-            <tbody className="text-sm text-gray-700 border-t">
-              {[...Array(2)].map((_, i) => (
+            <tbody className="text-sm text-gray-700 border-t ">
+              {[...Array(8)].map((_, i) => (
                 <tr key={i}>
-                  <td className="py-3 px-4">John doe</td>
-                  <td className="py-3 px-4">8978765654</td>
-                  <td className="py-3 px-4">john@gmail.com</td>
-                  <td className="py-3 px-4">Washing & Ironing</td>
-                  <td className="py-3 px-4">Golden City Center, Chh Sambhajinagar</td>
-                  <td className="py-3 px-4">
+                  <td className="py-3 px-4 text-[12px] md:text-sm">John doe</td>
+                  <td className="py-3 px-4 text-[12px] md:text-sm">8978765654</td>
+                  <td className="py-3 px-4 text-[12px] md:text-sm">john@gmail.com</td>
+                  <td className="py-3 px-4 text-[12px] md:text-sm">Washing & Ironing</td>
+                  <td className="py-3 px-4 text-[12px] md:text-sm">Golden City Center, Chh Sambhajinagar</td>
+                  <td className="py-3 px-4 text-[12px] md:text-sm">
                     <button
                       onClick={() => setShowModal(true)}
-                      className="p-2 bg-[rgba(5,35,68,1)] text-white rounded-lg"
+                      className="p-2 bg-[rgba(5,35,68,1)] text-white rounded-lg text-[10px] md:text-[white] whitespace-nowrap"
                     >
                       Schedule Pickup
                     </button>
@@ -93,6 +93,10 @@ const OrderTable = () => {
           </div>
         </div>
       )}
+
+      <div className="h-[300px]">
+
+      </div>
     </div>
   );
 };

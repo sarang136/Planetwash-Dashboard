@@ -35,9 +35,9 @@ const barData = [
 
 const StatCards = () => {
   return (
-    <div className="flex flex-wrap gap-8 justify-center p-2">
+    <div className="flex flex-wrap gap-8 justify-center p-4 md:p-2 w-[100vw] md:w-[unset]">
       
-      {/* Line Chart Card */}
+    
       <div className="bg-white p-[0.7rem] rounded-2xl shadow-md w-full md:w-[48%] flex flex-col">
         <div className="flex justify-between items-start mb-4">
           <div className="text-xl font-bold text-[#1f2454]">
@@ -50,7 +50,7 @@ const StatCards = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          {/* Left: Details */}
+          
           <div className="flex-1">
             
             <h2 className="text-3xl font-bold text-[#1f2454]">Rs.37.5K</h2>
@@ -62,7 +62,7 @@ const StatCards = () => {
             </div>
           </div>
 
-          {/* Right: Chart */}
+          
           <div className="flex-1 h-40">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={lineData}>
@@ -81,7 +81,7 @@ const StatCards = () => {
         </div>
       </div>
 
-      {/* Bar Chart Card */}
+      
       <div className="bg-white p-[0.7rem] rounded-2xl shadow-md w-full md:w-[48%] flex flex-col">
         <div className="flex justify-between items-start mb-4">
           <h2 className="text-xl font-bold text-[#1f2454]">Weekly Revenue</h2>
@@ -90,7 +90,7 @@ const StatCards = () => {
 
         <div className="flex flex-col sm:flex-row gap-4">
 
-          {/* Right: Chart */}
+          
           <div className="flex-1 h-40">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart  data={barData}>
