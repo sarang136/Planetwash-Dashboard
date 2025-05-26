@@ -230,12 +230,12 @@ const Orders = () => {
     return (
         <div className="p-4 md:p-[1rem] w-[100vw] md:w-[unset]">
             <div className="flex justify-between items-center p-0 mb-4 ">
-                <div className="flex gap-6 md:gap-[70px]">
+                <div className="flex gap-4 md:gap-[70px]">
                     {tabs.map((tab) => (
                         <button
                             key={tab}
                             onClick={() => setActiveTab(tab)}
-                            className={`text-base font-semibold text-[12px] md:text-sm ${activeTab === tab
+                            className={`text-[12px] font-semibold md:text-sm ${activeTab === tab
                                 ? "text-black border-b-2 border-black"
                                 : "text-gray-400 "
                                 }`}
