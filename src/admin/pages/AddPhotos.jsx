@@ -16,17 +16,17 @@ const AddPhotos = () => {
     return (
        <div className='p-2'>
          <div className=' md:p-4 overflow-hidden bg-white rounded-2xl '>
-            <div className={`  md:p-2 sm:p-6 relative flex flex-col-1 transition duration-300 ease-in-out flex justify-center ${showForm ? 'blur-sm' : ''}  `}>
+            <div className={`  md:p-2  relative flex flex-col-1 transition duration-300 ease-in-out flex justify-center ${showForm ? 'blur-sm' : ''}  `}>
 
                 {/* Image Grid */}
 
-                <div className='flex flex-wrap p-4 justify-center gap-4 md:gap-4 md:p-0 md:gap-x-10 sm:justify-start xl:flex xl:flex-row xl:justify-around'>
+                <div className='flex flex-wrap p-4 justify-center gap-6 md:gap-4 md:p-0 md:gap-x-10 sm:justify-start xl:flex xl:flex-row xl:justify-around'>
                     {images.map((img, index) => (
                         <div key={index} className=''>
                             <img
                                 src={img}
                                 alt={`uploaded-${index}`}
-                                className='rounded-lg md:w-full md:h-full w-[150px] '
+                                className='rounded-lg md:w-full md:h-full h-[150px] w-[150px] '
                             />
                             {/* <button
                                 className='h-[38px] w-[40px] p-2 relative bottom-11 left-2 bg-white rounded-md text-red-500 transition hover:bg-gray-100 '
