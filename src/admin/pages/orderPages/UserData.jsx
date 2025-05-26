@@ -179,7 +179,7 @@ const UserData = () => {
 
           {/* Dry Cleaning Placeholder */}
           {showItems === "Dry Cleaning" && (
-             <div className="flex gap-4 p-6 h-[200px]">
+             <div className="flex gap-4 p-6 h-[200px] overflow-scroll">
               <div className="bg-blue-100 rounded-lg p-8 flex flex-row gap-2 justify-center items-center w-[200px]">
                 <GiTShirt size={50} className="text-[#002244]" />
                 <p className="font-semibold whitespace-nowrap">T - Shirts</p>
