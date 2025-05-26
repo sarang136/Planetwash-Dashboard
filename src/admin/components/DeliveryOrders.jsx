@@ -29,11 +29,11 @@ const DeliveryOrders = ({ deliveryBoy }) => {
                 <table className="min-w-[800px] w-full border-gray-200 table-fixed sm:table-auto">
                     <thead className="bg-gray-100">
                         <tr>
-                            <th className="text-left px-2 py-3 text-gray-600 text-sm sm:text-base whitespace-nowrap">Customer Name</th>
+                            <th className="text-left px-2 py-3 text-gray-600 text-sm sm:text-base ">Customer Name</th>
                             <th className="text-left px-2 py-3 text-gray-600 text-sm sm:text-base">Contact No</th>
                             <th className="text-left px-2 py-3 text-gray-600 text-sm sm:text-base">Email</th>
                             <th className="text-left px-2 py-3 text-gray-600 text-sm sm:text-base">Total Items</th>
-                            <th className="text-left px-2 py-3 text-gray-600 text-sm sm:text-base">Delivery Type</th>
+                            <th className="text-left px-2 py-3 text-gray-600 text-sm sm:text-base whitespace-nowrap">Delivery Type</th>
                             <th className="text-left px-2 py-3 text-gray-600 text-sm sm:text-base">Address</th>
                             <th className="text-left px-2 py-3 text-gray-600 text-sm sm:text-base">Amount</th>
                             {activeTab === 'past' && (
