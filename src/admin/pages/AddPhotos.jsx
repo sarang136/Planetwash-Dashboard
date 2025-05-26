@@ -26,7 +26,7 @@ const AddPhotos = () => {
                             <img
                                 src={img}
                                 alt={`uploaded-${index}`}
-                                className='rounded-lg md:w-full md:h-full  w-[150px] '
+                                className='rounded-lg md:w-full md:h-full w-[150px] '
                             />
                             {/* <button
                                 className='h-[38px] w-[40px] p-2 relative bottom-11 left-2 bg-white rounded-md text-red-500 transition hover:bg-gray-100 '
