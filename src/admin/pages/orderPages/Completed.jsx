@@ -104,9 +104,9 @@ const Completed = () => {
 
   return (
     <div className="px-4 bg-white  shadow rounded-lg max-h-[75vh] overflow-y-scroll">
-      <div className="overflow-x-auto ">
-        <table className="min-w-full text-left text-sm text-gray-400   overflow-hidden ">
-          <thead className="text-sm text-black p-4 whitespace-nowrap ">
+      <div className="overflow-x-auto">
+        <table className="min-w-full text-left text-sm text-gray-400  overflow-hidden  ">
+          <thead className="text-sm text-black whitespace-nowrap sticky">
             <tr>
               <th className="px-[20px] py-[20px] font-bold text-[12px] md:text-sm whitespace-nowrap">Costumer Name</th>
               <th className="px-[20px] py-[20px] font-bold text-[12px] md:text-sm whitespace-nowrap">Contact No</th>

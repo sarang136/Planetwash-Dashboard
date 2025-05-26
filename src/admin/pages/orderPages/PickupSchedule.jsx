@@ -7,7 +7,7 @@ const PickupSchedule = () => {
   return (
     <div className="overflow-scroll px-4 bg-white rounded-lg shadow max-h-[75vh]">
       <table className="min-w-full text-sm text-left text-gray-500">
-        <thead className="text-xm text-black bg-white border-b whitespace-nowrap font-semibold">
+        <thead className="text-xm text-black bg-white border-b whitespace-nowrap font-semibold sticky top-0">
           <tr>
             <th className="px-[15px] py-[20px] text-[12px] md:text-sm whitespace-nowrap">Customer Name</th>
             <th className="px-6 py-3  sm:table-cell text-[12px] md:text-sm whitespace-nowrap">Contact No</th>

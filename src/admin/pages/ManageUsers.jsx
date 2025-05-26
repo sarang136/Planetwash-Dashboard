@@ -229,8 +229,8 @@ const Orders = () => {
 
     return (
         <div className="p-4 md:p-[1rem] w-[100vw] md:w-[unset]">
-            <div className="flex justify-between items-center p-4 mb-4 ">
-                <div className="flex gap-4 md:gap-[70px]">
+            <div className="flex justify-between items-center p-0 mb-4 ">
+                <div className="flex gap-6 md:gap-[70px]">
                     {tabs.map((tab) => (
                         <button
                             key={tab}
@@ -266,9 +266,9 @@ const Orders = () => {
             {/* Table */}
             {activeTab === "All Orders" && (
                <div className="  w-[auto] p- md:w-[unset]  md:p-0 ">
-                 <div className="overflow-x-scroll bg-white rounded-xl shadow max-h-[75vh] px-4 ">
+                 <div className="overflow-scroll bg-white rounded-xl shadow max-h-[75vh] px-0 md:px-4 ">
                     <table className="min-w-full text-sm text-left  ">
-                        <thead className="text-black font-semibold 100 ">
+                        <thead className="text-black font-semibold 100 sticky top-0 bg-white ">
                             <tr >
                                 <th className="px-[15px] py-[20px] text-[12px] md:text-sm whitespace-nowrap ">Customer Name</th>
                                 <th className="px-[15px] py-[10px] text-[12px] md:text-sm whitespace-nowrap ">Contact No</th>

@@ -27,7 +27,7 @@ const Ongoing = () => {
     <div className="px-4 bg-white  rounded-lg shadow max-h-[75vh] overflow-y-scroll">
       <div className="overflow-x-auto ">
         <table className="min-w-full text-left text-sm text-gray-400 bg-white rounded-xl overflow-hidden">
-          <thead className="text-sm text-black sticky">
+           <thead className="text-xm text-black bg-white border-b whitespace-nowrap font-semibold sticky top-0">
             <tr>
               <th className="px-[15px] py-[20px] font-bold text-[12px] md:text-sm whitespace-nowrap">Customer Name</th>
               <th className="px-6 py-3 font-bold text-[12px] md:text-sm whitespace-nowrap">Contact No</th>

@@ -94,9 +94,7 @@ const OrderTable = () => {
         </div>
       )}
 
-      <div className="h-[300px]">
-
-      </div>
+    
     </div>
   );
 };
