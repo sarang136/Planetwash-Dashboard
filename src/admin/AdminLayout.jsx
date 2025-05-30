@@ -11,7 +11,7 @@ const AdminLayout = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
     return (
-        <div className="flex min-h-screen">
+        <div className="flex min-h-screen ">
             <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
             {/* Main Content */}
             <div className={`flex flex-col flex-1 transition-all  duration-300 ${isSidebarOpen ? "md:ml-64" : "md:ml-0"}`}>

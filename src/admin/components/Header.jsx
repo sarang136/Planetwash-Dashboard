@@ -7,17 +7,17 @@ const Header = ({ toggleSidebar }) => {
     const location = useLocation();
     const [dropdownOpen, setDropdownOpen] = useState(false);
     // Path to Title Mapping
-    const titles = [
-        { path: "/home/dashboard", title: "Home" },
-        { path: "/home/order-details", title: "Orders" },
-        { path: "/home/add-service", title: "Add Service" },
+    const titles = [    
+        { path: "/home/dashboard", title: "Dashboard" },
+        { path: "/home/manageUsers", title: "Orders" },
+        { path: "/home/addservice", title: "Add Service" },
         { path: "/home/revenue", title: "Revenue" },
         { path: "/home/addphotos", title: "Photos" },
         { path: "/home/delivery-boys", title: "Delivery Boys" },
         { path: "/home/product-details", title: "Product Details" },
     ];
 
-    const currentTitle = titles.find(t => location.pathname.startsWith(t.path))?.title || "Admin Panel";
+    const currentTitle = titles.find(t => location.pathname.startsWith(t.path))?.title || "Shop Panel";
 
     return (
         <header className="bg-white shadow-md p-4 flex items-center justify-between font-dm w-[100vw] md:w-[unset] md:py-4 ">
@@ -28,7 +28,7 @@ const Header = ({ toggleSidebar }) => {
 
             {/* Dynamic Page Title */}
             <h1 className=" text-black font-bold md:text-2xl">{currentTitle}</h1>
-            <FaUserLarge className="md:mr-14 text-2xl text-black" />
+            <FaUserLarge className="md:mr-14 text-2xl text-[#8EDF4C]" />
 
         </header>
     );

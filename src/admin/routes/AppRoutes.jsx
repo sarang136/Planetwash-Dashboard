@@ -27,7 +27,7 @@ const AppRoutes = () => {
             <Route path="/signup/verify" element={<EmailVerificationPage />} />
 
             <Route path="home" element={<AdminLayout />}>
-                <Route path="dashboard" element={<Dashboard />} />
+                <Route index path="dashboard" element={<Dashboard />} />
                 <Route path="manageUsers" element={<ManageUsers />} />
                 <Route path="products" element={<Products />} />
                 <Route path="product-details/:id" element={<ProductDetails />} />
@@ -39,6 +39,7 @@ const AppRoutes = () => {
                 <Route path="addphotos" element={<AddPhotos />} />
                 <Route path="addphotos/new" element={<AddPhotosFrom />} />
                 <Route path="delivery-boys" element={<DeliveryBoys/>}/>
+                {/* <Route path="services/:serviceId" element={<ServicesData />} /> */}
             </Route>
         </Routes>
     )

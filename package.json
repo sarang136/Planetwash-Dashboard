@@ -23,7 +23,9 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.6.0",
     "react-youtube": "^10.1.0",
-    "recharts": "^2.15.3"
+    "recharts": "^2.15.3",
+    "swiper": "^11.2.8",
+    "tailwind-scrollbar-hide": "^2.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

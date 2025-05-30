@@ -1,202 +1,102 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
-import { sampleOrders } from "../ManageUsers";
-import {
-  GiArmoredPants,
-  GiDress,
-  GiShorts,
-  GiTShirt,
-} from "react-icons/gi";
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useGetUserOrdersQuery } from '../../redux/appSlice';
+import { GiTShirt } from "react-icons/gi";
 
-const UserData = () => {
+const OrdersFormView = () => {
   const { id } = useParams();
-  const orderData = sampleOrders.find((o) => o.id === id);
+  const { data: orders, isLoading, isError } = useGetUserOrdersQuery();
+  console.log(orders);
+  // const {status} = useGetUserOrdersByStatusQuery();
+  const [activeTabs, setActiveTabs] = useState({});
 
-  const [showItems, setShowItems] = useState("Washing");
-  const [formData, setFormData] = useState(orderData || {});
+  if (isLoading) return <p className="p-4 text-gray-500">Loading orders...</p>;
+  if (isError || !orders) return <p className="p-4 text-red-500">Failed to load orders.</p>;
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+
+  const filteredOrder = orders.find(order => order._id === id);
+  if (!filteredOrder) return <p className="p-4 text-gray-500">Order not found.</p>;
+
+  const validServices = filteredOrder.services.filter(service => service.serviceId?.name);
+
+  const handleTabClick = (tabIndex) => {
+    setActiveTabs({ [id]: tabIndex });
   };
 
-  if (!orderData) {
-    return <div className="p-4 text-red-500">User data not found.</div>;
-  }
-
   return (
-    <div className="p-6 bg-[#fdf9f9] min-h-screen w-[100vw] md:w-[auto]">
-      <div className="bg-white md:px-10 md:py-8 rounded-xl shadow-md p-4 ">
-        {/* User info inputs */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <div>
-            <label className="block text-lg font-medium text-gray-600 ">
-              Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full mt-1 p-4 bg-gray-100 rounded-md"
-            />
-          </div>
 
-          <div>
-            <label className="block text-lg font-medium text-gray-600">
-              Contact No
-            </label>
-            <input
-              type="text"
-              name="contact"
-              value={formData.contact}
-              onChange={handleChange}
-              className="w-full mt-1 p-4 bg-gray-100 rounded-md"
-            />
-          </div>
-
-          <div>
-            <label className="block text-lg font-medium text-gray-600">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full mt-1 p-4 bg-gray-100 rounded-md"
-            />
-          </div>
+    <div className='p-4'>
+      <div className="bg-white  rounded-2xl shadow-md mb-8 p-6">
+        {/* User Info */}
+        <div className="grid grid-cols-3 gap-6 mb-4">
+          <Input label="Name" value={filteredOrder.userId?.Name} />
+          <Input label="Contact No" value={filteredOrder.userId?.contactNo} />
+          <Input label="Email" value={filteredOrder.userId?.email} />
+          <Input label="Address" value={filteredOrder.addressId.location} />
+          <Input label="Order Date" value={filteredOrder.pickupDateTime} />
+          <Input label="Total Amount" value={filteredOrder.totalAmount} textClass="text-green-500" />
+          <Input label="Payment Method" value="Cash On Delivery" />
+          {/* {path === `/userData${_id}` <Input label="Pickup Date" value="Cash On Delivery" />} */}
+          <Input label="Delivery Boy" value={filteredOrder.deliveryBoy || "No Delivery Boy fetched"} />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <div>
-            <label className="block text-lg font-medium text-gray-600">
-              Address
-            </label>
-            <input
-              type="text"
-              name="address"
-              value={formData.address}
-              onChange={handleChange}
-              className="w-full mt-1 p-4 bg-gray-100 rounded-md"
-            />
-          </div>
-
-          <div>
-            <label className="block text-lg font-medium text-gray-600">
-              Order Date
-            </label>
-            <input
-              type="date"
-              name="pickup"
-              value={formData.pickup}
-              onChange={handleChange}
-              className="w-full mt-1 p-4 bg-gray-100 rounded-md"
-            />
-          </div>
-
-          <div>
-            <label className="block text-lg font-medium text-gray-600">
-              Total Amount
-            </label>
-            <input
-              type="text"
-              name="amount"
-              value={formData.amount || ""}
-              onChange={handleChange}
-              className="w-full mt-1 p-4 bg-gray-100 rounded-md text-green-600"
-            />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-          <div>
-            <label className="block text-lg font-medium text-gray-600">
-              Payment Method
-            </label>
-            <input
-              type="text"
-              name="payment"
-              value={formData.payment}
-              onChange={handleChange}
-              className="w-full mt-1 p-4 bg-gray-100 rounded-md"
-            />
-          </div>
-        </div>
-
-        {/* Service Types Section */}
-        <div className="mt-8">
-          <h3 className="text-lg font-semibold mb-4">Service Type</h3>
-          <div className="flex gap-6 border-b mb-4">
-            <button
-              className={`font-semibold pb-1 ${
-                showItems === "Washing"
-                  ? "text-blue-800 border-b-2 border-blue-800"
-                  : "text-gray-400"
-              }`}
-              onClick={() => setShowItems("Washing")}
-            >
-              Washing & Ironing
-            </button>
-            <button
-              className={`font-semibold pb-1 ${
-                showItems === "Dry Cleaning"
-                  ? "text-blue-800 border-b-2 border-blue-800"
-                  : "text-gray-400"
-              }`}
-              onClick={() => setShowItems("Dry Cleaning")}
-            >
-              Dry Cleaning
-            </button>
-          </div>
-
-          {/* Washing Items */}
-          {showItems === "Washing" && (
-            <div className="flex gap-4 p-6 h-[200px] overflow-scroll">
-              <div className="bg-blue-100 rounded-lg p-8 flex flex-row gap-2 justify-center items-center w-[200px]">
-                <GiTShirt size={50} className="text-[#002244]" />
-                <p className="font-semibold whitespace-nowrap">T - Shirts</p>
-                <p className="font-bold">5</p>
-              </div>
-              <div className="bg-blue-100 rounded-lg p-8 flex flex-row gap-2 justify-center items-center w-[200px]">
-                <GiDress size={50} className="text-[#002244]" />
-                <p className="font-semibold whitespace-nowrap">Top</p>
-                <p className="font-bold">5</p>
-              </div>
-              <div className="bg-blue-100 rounded-lg p-8 flex flex-row gap-2 justify-center items-center w-[200px]">
-                <GiShorts size={50} className="text-[#002244]" />
-                <p className="font-semibold whitespace-nowrap">Formal Pant</p>
-                <p className="font-bold">5</p>
-              </div>
-              <div className="bg-blue-100 rounded-lg p-8 flex flex-row gap-2 justify-center items-center w-[200px]">
-                <GiArmoredPants size={50} className="text-[#002244]" />
-                <p className="font-semibold whitespace-nowrap">Jeans</p>
-                <p className="font-bold">5</p>
-              </div>
+        {validServices.length > 0 && (
+          <>
+            <h1 className='px-4 py-2 text-xl font-medium'>Service Type</h1>
+            <div className="border-b mb-4 flex gap-4">
+              {validServices.map((service, tabIndex) => (
+                <button
+                  key={tabIndex}
+                  onClick={() => handleTabClick(tabIndex)}
+                  className={`px-4 py-4 text-[22px] font-bold ${activeTabs[id] === tabIndex
+                    ? 'text-black border-b-2 border-black'
+                    : 'text-gray-400'
+                    }`}
+                >
+                  {service.serviceId?.name}
+                </button>
+              ))}
             </div>
-          )}
 
-          {/* Dry Cleaning Placeholder */}
-          {showItems === "Dry Cleaning" && (
-             <div className="flex gap-4 p-6 h-[200px] overflow-scroll">
-              <div className="bg-blue-100 rounded-lg p-8 flex flex-row gap-2 justify-center items-center w-[200px]">
-                <GiTShirt size={50} className="text-[#002244]" />
-                <p className="font-semibold whitespace-nowrap">T - Shirts</p>
-                <p className="font-bold">5</p>
-              </div>
-              <div className="bg-blue-100 rounded-lg p-8 flex flex-row gap-2 justify-center items-center w-[200px]">
-                <GiDress size={50} className="text-[#002244]" />
-                <p className="font-semibold whitespace-nowrap">Top</p>
-                <p className="font-bold">5</p>
-              </div>
+            <div className="grid grid-cols-4 gap-4">
+
+              {validServices[activeTabs[id] || 0]?.products?.map((product, pIndex) => (
+                <ServiceBox
+                  key={pIndex}
+                  label={product.productName}
+                  quantity={product.quantity}
+                  image={product.productId.image}
+                />
+              ))}
             </div>
-          )}
-        </div>
+          </>
+        )}
       </div>
-     
     </div>
+
   );
 };
 
-export default UserData;
+const Input = ({ label, value, textClass = "" }) => (
+  <div>
+    <label className="block text-gray-500 mb-1">{label}</label>
+    <input
+      type="text"
+      value={value || ''}
+      readOnly
+      className={`w-full bg-[#f9f4f3] p-4 rounded-md ${textClass}`}
+    />
+  </div>
+);
+
+const ServiceBox = ({ label, quantity, image }) => (
+  <div className="bg-[#f9f4f3] p-10 rounded-xl flex gap-4 items-center justify-center cursor-pointer">
+   <img className='h-[40px]' src={image}/>
+    <div className='grid'>
+      <p className="text-xl font-semibold">{label}</p>
+      <p className="text-lg font-semibold">({quantity})</p>
+    </div>
+  </div>
+);
+
+export default OrdersFormView;

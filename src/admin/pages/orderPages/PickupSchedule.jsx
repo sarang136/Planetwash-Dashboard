@@ -1,48 +1,82 @@
+import React from "react";
+import { useGetUserOrdersByStatusQuery } from "../../redux/appSlice";
+import ShimmerUiForOrders from "../../../ShimmerUis/ShimmerUiForOrders";
 import { useNavigate } from "react-router-dom";
-import { sampleOrders } from "../ManageUsers";
 
 const PickupSchedule = () => {
+  const { data, isLoading, error } = useGetUserOrdersByStatusQuery("pickup-schedule");
   const navigate = useNavigate();
 
+  if (isLoading) return <ShimmerUiForOrders />;
+  if (error) return <p className="text-center text-gray-500 py-6">No Orders Found</p>;
+
+  const completedOrders = data?.orders || [];
+
   return (
-    <div className="overflow-scroll px-4 bg-white rounded-lg shadow max-h-[75vh]">
-      <table className="min-w-full text-sm text-left text-gray-500">
-        <thead className="text-xm text-black bg-white border-b whitespace-nowrap font-semibold sticky top-0">
-          <tr>
-            <th className="px-[15px] py-[20px] text-[12px] md:text-sm whitespace-nowrap">Customer Name</th>
-            <th className="px-6 py-3  sm:table-cell text-[12px] md:text-sm whitespace-nowrap">Contact No</th>
-            <th className="px-6 py-3  md:table-cell text-[12px] md:text-sm whitespace-nowrap">Email</th>
-            <th className="px-6 py-3  sm:table-cell text-[12px] md:text-sm whitespace-nowrap">Pickup Date & Time</th>
-            <th className="px-6 py-3  lg:table-cell text-[12px] md:text-sm whitespace-nowrap">Delivery Boy</th>
-            <th className="px-6 py-3  lg:table-cell text-[12px] md:text-sm whitespace-nowrap">Address</th>
-            <th className="px-6 py-3  md:table-cell text-[12px] md:text-sm whitespace-nowrap">Payment Method</th>
-          </tr>
-        </thead>
-        <tbody>
-          {sampleOrders.map((order, index) => (
-            <tr
-              key={index}
-              className="text-gray-400 cursor-pointer hover:bg-gray-100 text-[12px] md:text-sm "
-            >
-              <td
-                className="px-6 py-4"
-                onClick={() => navigate(`/userData/${order.id}`)}
-              >
-                {order.name}
-              </td>
-              <td className="px-6 py-4 text-[12px] md:text-sm  sm:table-cell">{order.contact}</td>
-              <td className="px-6 py-4 text-[12px] md:text-sm  md:table-cell">{order.email}</td>
-              <td className="px-6 py-4 text-[12px] md:text-sm  sm:table-cell">
-                {order.pickup}
-                <p>{order.pickupTime}</p>
-              </td>
-              <td className="px-6 py-4 text-[12px] md:text-sm  lg:table-cell">{order.deliveryBoy}</td>
-              <td className="px-6 py-4 text-[12px] md:text-sm  lg:table-cell">{order.address}</td>
-              <td className="px-6 py-4 text-[12px] md:text-sm  md:table-cell">{order.payment}</td>
+    <div className="w-[auto] md:w-[unset] md:p-0">
+      <div className="overflow-y-scroll bg-white rounded-xl shadow max-h-[75vh] px-0 md:px-4">
+        <table className="min-w-full text-sm text-left">
+          <thead className="text-black font-semibold sticky top-0 bg-white z-10">
+            <tr>
+              <th className="p-4 whitespace-nowrap">Customer Name</th>
+              <th className="p-4 whitespace-nowrap">Contact No</th>
+              <th className="p-4">Email</th>
+              <th className="p-4">Service Type</th>
+              <th className="p-4">Delivered By</th>
+              <th className="p-4">Address</th>
+              <th className="p-4">Payment</th>
+              <th className="p-4">Delivered On</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className="text-gray-400 border-t">
+            {completedOrders.length === 0 ? (
+              <tr>
+                <td colSpan="8" className="text-center text-gray-500 py-6">
+                  No completed orders found
+                </td>
+              </tr>
+            ) : (
+              completedOrders.map((order, index) => {
+                const {
+                  _id,
+                  addressId,
+                  deliveryBoyName,
+                  deliveryBoyContact,
+                  paymentMethod,
+                  updatedAt,
+                  services,
+                } = order;
+
+                return (
+                  <tr key={index}>
+                    <td
+                      className="px-4 py-2 cursor-pointer"
+                      onClick={() => navigate(`/home/userData/${_id}`)}
+                    >
+                      {addressId?.name}
+                    </td>
+                    <td className="p-4">{addressId?.contactNo}</td>
+                    <td className="p-4">{addressId?.email}</td>
+                    <td className="p-4">{services?.[0]?.serviceId?.name}</td>
+                    <td className="p-4">
+                      {deliveryBoyName}
+                      <br />
+                      {deliveryBoyContact}
+                    </td>
+                    <td className="px-4 py-2">
+                      {addressId?.location}, {addressId?.pincode}
+                    </td>
+                    <td className="px-4 py-2 capitalize">
+                      {paymentMethod || "Cash on Delivery"}
+                    </td>
+                    <td className="px-4 py-2">{updatedAt}</td>
+                  </tr>
+                );
+              })
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

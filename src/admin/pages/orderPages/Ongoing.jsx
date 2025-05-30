@@ -1,63 +1,76 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-
-const ongoingOrders = [
-  {
-    customerName: 'John doe',
-    contactNo: '8978765654',
-    email: 'john@gmail.com',
-    serviceType: 'washing & Ironing',
-    address: 'golden city center ,\nChh Sambhajinagar',
-    paymentMethod: 'Cash on Delivery',
-  },
-  {
-    customerName: 'John doe',
-    contactNo: '8978765654',
-    email: 'john@gmail.com',
-    serviceType: 'washing & Ironing',
-    address: 'golden city center ,\nChh Sambhajinagar',
-    paymentMethod: 'Cash on Delivery',
-  },
-];
+import React from "react";
+import { useGetUserOrdersByStatusQuery } from '../../redux/appSlice';
+import { useNavigate } from "react-router-dom";
+import ShimmerUiForOrders from "../../../ShimmerUis/ShimmerUiForOrders";
 
 const Ongoing = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+  const { data, isLoading, error } = useGetUserOrdersByStatusQuery("ongoing");
+  console.log(data);
+
+  if (isLoading) return <ShimmerUiForOrders />;
+  if (error) return <p className="text-center text-gray-500 py-6">No Orders Found</p>;
+
+  const completedOrders = data?.orders || [];
 
   return (
-    <div className="px-4 bg-white  rounded-lg shadow max-h-[75vh] overflow-y-scroll">
-      <div className="overflow-x-auto ">
-        <table className="min-w-full text-left text-sm text-gray-400 bg-white rounded-xl overflow-hidden">
-           <thead className="text-xm text-black bg-white border-b whitespace-nowrap font-semibold sticky top-0">
+    <div className="w-[auto] md:w-[unset] md:p-0">
+      <div className="overflow-y-scroll bg-white rounded-xl shadow max-h-[75vh] px-0 md:px-4">
+        <table className="min-w-full text-sm text-left">
+          <thead className="text-black font-semibold sticky top-0 bg-white z-10">
             <tr>
-              <th className="px-[15px] py-[20px] font-bold text-[12px] md:text-sm whitespace-nowrap">Customer Name</th>
-              <th className="px-6 py-3 font-bold text-[12px] md:text-sm whitespace-nowrap">Contact No</th>
-              <th className="px-6 py-3 font-bold text-[12px] md:text-sm whitespace-nowrap">Email</th>
-              <th className="px-6 py-3 font-bold text-[12px] md:text-sm whitespace-nowrap">Service Type</th>
-              <th className="px-6 py-3 font-bold text-[12px] md:text-sm whitespace-nowrap">Address</th>
-              <th className="px-6 py-3 font-bold text-[12px] md:text-sm whitespace-nowrap">Payment Method</th>
+              <th className="p-4 whitespace-nowrap">Customer Name</th>
+              <th className="p-4 whitespace-nowrap">Contact No</th>
+              <th className="p-4">Email</th>
+              <th className="p-4">Service Type</th>
+              <th className="p-4">Delivered By</th>
+              <th className="p-4">Address</th>
+              <th className="p-4">Payment</th>
+              <th className="p-4">Delivered On</th>
             </tr>
           </thead>
-          <tbody className="border-t cursor-pointer">
-            {ongoingOrders.map((order, index) => (
-              <tr key={index}>
-                <td
-                  className="px-[15px] py-[10px] text-[12px] md:text-sm"
-                  onClick={() => navigate('/orderdetails')}
-                >
-                  {order.customerName}
-                </td>
-                <td className="px-[15px] py-[20px] text-[12px] md:text-sm">{order.contactNo}</td>
-                <td className="px-[15px] py-[20px] text-[12px] md:text-sm">{order.email}</td>
-                <td className="px-[15px] py-[20px] capitalize text-[12px] md:text-sm">{order.serviceType}</td>
-                <td className="px-[15px] py-[20px] text-[12px] md:text-sm whitespace-pre-wrap">{order.address}</td>
-                <td className="px-[15px] py-[20px] text-[12px] md:text-sm">{order.paymentMethod}</td>
-                <td className="px-[15px] py-[20px] text-[12px] md:text-sm ">
-                  <button className="bg-[#002244] text-white px-4 py-2 rounded-lg text-[10px] whitespace-nowrap">
-                    Schedule Delivery
-                  </button>
+          <tbody className="text-gray-400 border-t">
+            {completedOrders.length === 0 ? (
+              <tr>
+                <td colSpan="8" className="text-center text-gray-500 py-6">
+                  No completed orders found
                 </td>
               </tr>
-            ))}
+            ) : (
+              completedOrders.map((order, index) => {
+                const {
+                  _id,
+                  addressId,
+                  deliveryBoyName,
+                  deliveryBoyContact,
+                  paymentMethod,
+                  services,
+                  updatedAt
+                } = order;
+
+                return (
+                  <tr key={index}>
+                    <td
+                      className="px-4 py-2 cursor-pointer"
+                      onClick={() => navigate(`/home/userData/${_id}`)}
+                    >
+                      {addressId?.name}
+                    </td>
+                    <td className="p-4">{addressId?.contactNo}</td>
+                    <td className="p-4">{addressId?.email}</td>
+                    <td className="p-4">{services[0]?.serviceId?.name}</td>
+                    <td className="p-4">
+                      {deliveryBoyName}<br />{deliveryBoyContact}
+                    </td>
+                    <td className="px-4 py-2">
+                      {addressId?.location}, {addressId?.pincode}
+                    </td>
+                    <td className="px-4 py-2 capitalize">{paymentMethod || "Cash on Delivery"}</td>
+                    <td className="px-4 py-2">{new Date(updatedAt).toLocaleDateString()}</td>
+                  </tr>
+                );
+              })
+            )}
           </tbody>
         </table>
       </div>

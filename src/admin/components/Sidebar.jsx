@@ -52,18 +52,19 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
               <Link
                 key={item.path}
                 to={item.path}
-                onClick={handleNavClick}
+                onClick={handleNavClick} 
+
                 className="block"
               >
                 <div
                   className={`
-          relative flex items-center gap-6 p-2 pl-4 pr-4 rounded-xl w-full
-          text-[#019ECE] hover:text-[#052344]
-          before:content-[""] before:absolute before:top-1/2 before:left-0 
-          before:-translate-y-1/2 before:h-2/3 before:w-1 before:rounded-full 
-          before:bg-transparent
-          ${isActive ? 'text-[#052344] before:bg-[#052344]' : ''}
-        `}
+    relative flex items-center gap-6 p-2 pl-4 pr-4 rounded-xl w-full
+    text-[#019ECE] hover:text-[#8EDF4C]
+    before:content-[""] before:absolute before:top-1/2 before:left-0 
+    before:-translate-y-1/2 before:h-2/3 before:w-1 before:rounded-full 
+    before:bg-transparent
+    ${isActive ? 'text-[#8EDF4C] before:bg-[#052344]' : ''}
+  `}
                 >
                   <span className="text-3xl">{item.icon}</span>
                   <span className="text-xl">{item.name}</span>
