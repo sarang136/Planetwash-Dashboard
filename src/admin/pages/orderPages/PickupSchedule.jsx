@@ -7,76 +7,134 @@ const PickupSchedule = () => {
   const { data, isLoading, error } = useGetUserOrdersByStatusQuery("pickup-schedule");
   const navigate = useNavigate();
 
-  if (isLoading) return <ShimmerUiForOrders />;
-  if (error) return <p className="text-center text-gray-500 py-6">No Orders Found</p>;
+  const isMobile = window.innerWidth < 768;
 
-  const completedOrders = data?.orders || [];
+  if (isLoading)
+    return isMobile ? (
+      <p className="text-center py-4 animate-pulse">Loading...</p>
+    ) : (
+      <ShimmerUiForOrders />
+    );
+
+  if (error) return <p className="text-center text-red-500 py-6">Error loading orders.</p>;
+
+  const pickupOrders = data?.orders || [];
 
   return (
-    <div className="w-[auto] md:w-[unset] md:p-0">
-      <div className="overflow-y-scroll bg-white rounded-xl shadow max-h-[75vh] px-0 md:px-4">
-        <table className="min-w-full text-sm text-left">
-          <thead className="text-black font-semibold sticky top-0 bg-white z-10">
-            <tr>
-              <th className="p-4 whitespace-nowrap">Customer Name</th>
-              <th className="p-4 whitespace-nowrap">Contact No</th>
-              <th className="p-4">Email</th>
-              <th className="p-4">Service Type</th>
-              <th className="p-4">Delivered By</th>
-              <th className="p-4">Address</th>
-              <th className="p-4">Payment</th>
-              <th className="p-4">Delivered On</th>
-            </tr>
-          </thead>
-          <tbody className="text-gray-400 border-t">
-            {completedOrders.length === 0 ? (
-              <tr>
-                <td colSpan="8" className="text-center text-gray-500 py-6">
-                  No completed orders found
-                </td>
-              </tr>
-            ) : (
-              completedOrders.map((order, index) => {
-                const {
-                  _id,
-                  addressId,
-                  deliveryBoyName,
-                  deliveryBoyContact,
-                  paymentMethod,
-                  updatedAt,
-                  services,
-                } = order;
+    <div className="max-h-[75vh] overflow-y-auto p-4 space-y-6">
+      {pickupOrders.length === 0 ? (
+        <p className="text-center text-gray-500 py-6">No pickup scheduled orders found</p>
+      ) : (
+        pickupOrders.map((order, index) => {
+          const {
+            _id,
+            addressId,
+            deliveryBoyName,
+            deliveryBoyContact,
+            paymentMethod,
+            updatedAt,
+            services,
+            pickupDateTime,
+          } = order;
 
-                return (
-                  <tr key={index}>
-                    <td
-                      className="px-4 py-2 cursor-pointer"
+          return (
+            <div
+              key={_id || index}
+              className="bg-white p-4 rounded-xl shadow-md border border-gray-200 text-xs md:text-sm"
+            >
+              <div className="flex flex-col md:flex-row justify-between gap-4">
+                <div className="w-full md:w-1/2 space-y-3">
+                  <div>
+                    <label className="font-semibold block mb-1">Customer Name</label>
+                    <input
+                      type="text"
+                      value={addressId?.name || ""}
+                      disabled
                       onClick={() => navigate(`/home/userData/${_id}`)}
-                    >
-                      {addressId?.name}
-                    </td>
-                    <td className="p-4">{addressId?.contactNo}</td>
-                    <td className="p-4">{addressId?.email}</td>
-                    <td className="p-4">{services?.[0]?.serviceId?.name}</td>
-                    <td className="p-4">
-                      {deliveryBoyName}
-                      <br />
-                      {deliveryBoyContact}
-                    </td>
-                    <td className="px-4 py-2">
-                      {addressId?.location}, {addressId?.pincode}
-                    </td>
-                    <td className="px-4 py-2 capitalize">
-                      {paymentMethod || "Cash on Delivery"}
-                    </td>
-                    <td className="px-4 py-2">{updatedAt}</td>
-                  </tr>
-                );
-              })
-            )}
-          </tbody>
-        </table>
-      </div>
+                      className="w-full bg-gray-100 px-3 py-2 rounded-md cursor-pointer"
+                    />
+                  </div>
+                  <div>
+                    <label className="font-semibold block mb-1">Contact No</label>
+                    <input
+                      type="text"
+                      value={addressId?.contactNo || ""}
+                      disabled
+                      className="w-full bg-gray-100 px-3 py-2 rounded-md"
+                    />
+                  </div>
+                  <div>
+                    <label className="font-semibold block mb-1">Email</label>
+                    <input
+                      type="email"
+                      value={addressId?.email || ""}
+                      disabled
+                      className="w-full bg-gray-100 px-3 py-2 rounded-md"
+                    />
+                  </div>
+                  <div>
+                    <label className="font-semibold block mb-1">Service Type</label>
+                    <input
+                      type="text"
+                      value={services?.[0]?.serviceId?.name || ""}
+                      disabled
+                      className="w-full bg-gray-100 px-3 py-2 rounded-md"
+                    />
+                  </div>
+                </div>
+
+                <div className="w-full md:w-1/2 space-y-3">
+                  <div>
+                    <label className="font-semibold block mb-1">Delivered By</label>
+                    <input
+                      type="text"
+                      value={`${deliveryBoyName || "N/A"} (${deliveryBoyContact || "N/A"})`}
+                      disabled
+                      className="w-full bg-gray-100 px-3 py-2 rounded-md"
+                    />
+                  </div>
+                  <div>
+                    <label className="font-semibold block mb-1">Address</label>
+                    <input
+                      type="text"
+                      value={`${addressId?.location || ""}, ${addressId?.pincode || ""}`}
+                      disabled
+                      className="w-full bg-gray-100 px-3 py-2 rounded-md"
+                    />
+                  </div>
+                  <div>
+                    <label className="font-semibold block mb-1">Payment</label>
+                    <input
+                      type="text"
+                      value={paymentMethod || "Cash on Delivery"}
+                      disabled
+                      className="w-full bg-gray-100 px-3 py-2 rounded-md capitalize"
+                    />
+                  </div>
+                  <div>
+                    <label className="font-semibold block mb-1">Pickup Date & Time</label>
+                    <input
+                      type="text"
+                      value={pickupDateTime ? new Date(pickupDateTime).toLocaleString() : ""}
+                      disabled
+                      className="w-full bg-gray-100 px-3 py-2 rounded-md"
+                    />
+                  </div>
+                  <div>
+                    <label className="font-semibold block mb-1">Last Updated On</label>
+                    <input
+                      type="text"
+                      value={updatedAt ? new Date(updatedAt).toLocaleString() : ""}
+                      disabled
+                      className="w-full bg-gray-100 px-3 py-2 rounded-md"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })
+      )}
     </div>
   );
 };

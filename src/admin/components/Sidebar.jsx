@@ -40,7 +40,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
         {/* Logo */}
         <div className='flex justify-center'>
-          <img src="../Images/newLogo.png" alt="Logo" className='h-24' />
+          <img src="../Images/newLogo.png" alt="Logo" className='h-[70px] md:h-24' />
         </div>
 
         {/* Navigation Menu */}
@@ -58,7 +58,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
               >
                 <div
                   className={`
-    relative flex items-center gap-6 p-2 pl-4 pr-4 rounded-xl w-full
+    relative flex items-center gap-6 p-[4px] md:p-2 pl-4 pr-4 rounded-xl w-full
     text-[#019ECE] hover:text-[#8EDF4C]
     before:content-[""] before:absolute before:top-1/2 before:left-0 
     before:-translate-y-1/2 before:h-2/3 before:w-1 before:rounded-full 
@@ -67,7 +67,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   `}
                 >
                   <span className="text-3xl">{item.icon}</span>
-                  <span className="text-xl">{item.name}</span>
+                  <span className="text-sm md:text-xl">{item.name}</span>
                 </div>
               </Link>
             );

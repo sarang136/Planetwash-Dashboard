@@ -1,11 +1,12 @@
-import React from 'react';
+
 
 const ShimmerUiForOrders = () => {
   const rows = Array(7).fill(0);
 
   return (
-    <div className="p-4 w-full  bg-white rounded-xl shadow overflow-y-scroll">
-      <table className="w-full text-sm animate-pulse">
+    <div className='p-4 w-[100vw] md:w-[unset]'>
+      <div className="md:w-full  bg-white rounded-xl shadow overflow-y-scroll">
+      <table className="md:w-full text-sm animate-pulse">
         <thead>
           <tr>
             {Array(7).fill(0).map((_, index) => (
@@ -29,6 +30,7 @@ const ShimmerUiForOrders = () => {
           ))}
         </tbody>
       </table>
+    </div>
     </div>
   );
 };

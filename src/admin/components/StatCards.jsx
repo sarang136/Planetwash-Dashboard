@@ -49,7 +49,7 @@ const StatCards = () => {
           <BarChart3 className="text-gray-300" />
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex flex-col sm:flex-row gap-2">
           
           <div className="flex-1">
             

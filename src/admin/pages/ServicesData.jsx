@@ -69,9 +69,9 @@ const ServicesData = ({ serviceId }) => {
         <table className="min-w-full max-h-[30vh]  divide-y divide-gray-200 rounded-xl overflow-hidden ">
           <thead className="bg-[rgba(235,235,235,1)]">
             <tr>
-              <th className="px-10 py-6 text-left text-sm font-bold text-gray-900 ">Product Name</th>
-              <th className="px-10 py-6 text-left text-sm font-bold text-gray-900 ">Price</th>
-              <th className="px-10 py-6 text-left text-sm font-bold text-gray-900 ">Action</th>
+              <th className="p-4 md:px-10 md:py-6 text-left text-xs md:text-sm font-bold text-gray-900 ">Product Name</th>
+              <th className="md:px-10 md:py-6 text-left text-xs md:text-sm font-bold text-gray-900 ">Price</th>
+              <th className="md:px-10 md:py-6 text-left text-xs md:text-sm font-bold text-gray-900 ">Action</th>
               {/* <th className="px-6 py-6 text-left text-sm font-medium text-gray-900">Image</th> */}
             </tr>
           </thead>
@@ -79,9 +79,9 @@ const ServicesData = ({ serviceId }) => {
             {Array.isArray(serviceData?.products) && serviceData.products.length > 0 ? (
               serviceData.products.map((res) => (
                 <tr key={res._id}>
-                  <td className="px-10 py-3 whitespace-nowrap font-medium  text-[rgba(145,145,145,1)] ">{res.name}</td>
-                  <td className="px-10 py-3 whitespace-nowrap font-medium  text-[rgba(145,145,145,1)]">Rs.{res.price}</td>
-                  <td className="px-10 py-3 whitespace-nowrap  text-[rgba(145,145,145,1)] ">
+                  <td className=" p-4 md:px-10 md:py-3 whitespace-nowrap font-medium  text-[rgba(145,145,145,1)] ">{res.name}</td>
+                  <td className="md:px-10 md:py-3 whitespace-nowrap font-medium  text-[rgba(145,145,145,1)]">Rs.{res.price}</td>
+                  <td className="md:px-10 md:py-3 whitespace-nowrap  text-[rgba(145,145,145,1)] ">
                     <button
                       className="text-blue-500 hover:text-blue-700 mr-2"
                       onClick={() => handleEditClick(res)}

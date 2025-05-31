@@ -37,7 +37,7 @@ const OrdersFormView = () => {
           <Input label="Total Amount" value={filteredOrder.totalAmount} textClass="text-green-500" />
           <Input label="Payment Method" value="Cash On Delivery" />
           {/* {path === `/userData${_id}` <Input label="Pickup Date" value="Cash On Delivery" />} */}
-          <Input label="Delivery Boy" value={filteredOrder.deliveryBoy || "No Delivery Boy fetched"} />
+          {/* <Input label="Delivery Boy" value={filteredOrder.deliveryBoyId.Name || "No Delivery Boy fetched"} /> */}
         </div>
 
         {validServices.length > 0 && (

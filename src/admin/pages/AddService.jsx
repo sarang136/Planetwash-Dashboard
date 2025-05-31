@@ -119,34 +119,34 @@ const AddService = () => {
   const selectedService = allServices.find(service => service._id === selectedServiceId);
   
   return (
-    <div className="px-4 overflow-hidden">
+    <div className="px-4 w-[100vw] md:w-[unset]">
 
       <div className="flex justify-between">
-        <h1 className="py-4 text-[20px] font-bold">All Services</h1>
-        <div className="flex gap-4 text-white py-2">
+        <h1 className="py-4 md:text-[20px] font-bold">All Services</h1>
+        <div className="flex gap-4 text-white md:py-2 py-4 ">
           <button
             onClick={() => setShowModal(true)}
-            className="bg-[#8EDF4C] px-6 rounded-xl text-sm text-white"
+            className="bg-[#8EDF4C] md:px-4 px-2 rounded-xl text-[10px] md:text-sm text-white"
           >
             Add Service
           </button>
           <button
             onClick={() => setShowProductModal(true)}
-            className="bg-[#8EDF4C] px-6 rounded-xl text-sm text-white"
+            className="bg-[#8EDF4C] md:px-4 px-2 rounded-xl text-[10px] md:text-sm text-white"
           >
             Add Product
           </button>
         </div>
       </div>
 
-      <div className="custom-scrollbar grid [grid-template-columns:repeat(auto-fill,minmax(200px,1fr))] gap-6 p-2 max-w-full overflow-y-scroll max-h-[50vh]  ">
+      <div className="custom-scrollbar flex flex-wrap md:grid [grid-template-columns:repeat(auto-fill,minmax(200px,1fr))] gap-6 p-2 max-w-full overflow-y-scroll max-h-[50vh]  ">
 
         {allServices.map((res, index) => (
-          <div key={res._id} className="w-[200px] h-[230px] relative">
+          <div key={res._id} className="md:w-[200px] md:h-[230px] relative">
             <img
               src={res.image}
               alt={`Service ${index}`}
-              className={`w-full h-[200px] object-cover rounded-2xl cursor-pointer border-2 transition-[1s] ease-in ${selectedServiceId === res._id
+              className={`md:w-full md:h-[200px] h-[100px] w-[150px] object-cover rounded-2xl cursor-pointer border-2 transition-[1s] ease-in ${selectedServiceId === res._id
                   ? "shadow-xl scale-[1.1] transition-transform duration-300"
                   : "border-transparent hover:border-blue-500   "
                 }`}
@@ -155,11 +155,11 @@ const AddService = () => {
 
 
             <MdDelete
-              className="absolute top-[160px] right-[12px] text-3xl text-red-500 cursor-pointer hover:text-red-700 bg-gray-300 rounded-md"
+              className="absolute top-[0] right-[0] md:top-[160px] md:right-[12px] text-3xl text-red-500 cursor-pointer hover:text-red-700 bg-gray-300 rounded-md"
               onClick={() => handleDelete(res._id)}
             />
 
-            <p className="p-2 font-bold text-sm text-center">{res.name}</p>
+            <p className="p-2 font-bold text-sm text-center">{res.name} <span></span></p>
           </div>
         ))}
       </div>
@@ -172,7 +172,7 @@ const AddService = () => {
 {selectedServiceId && selectedService && (
   <div className="mt-10 p-2 ">
     
-    <p className="font-bold text-xl mb-4">Product : {selectedService.name}</p>
+    <p className="font-bold md:text-xl mb-4">Product : <span className="text-gray-400 font-medium italic">{selectedService.name}</span></p>
     <ServicesData serviceId={selectedServiceId} />
   </div>
 )}
@@ -266,7 +266,7 @@ const AddService = () => {
 
       {showProductModal && (
         <>
-          <div className="modal modal-open">
+          <div className="modal modal-open p-4">
             <div className="modal-box rounded-xl max-w-md w-full">
               <h3 className="font-bold text-lg mb-4">Add New Product</h3>
 
@@ -391,6 +391,8 @@ const AddService = () => {
           ></div>
         </>
       )}
+
+      
     </div>
   );
 };
